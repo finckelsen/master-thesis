@@ -1,0 +1,21 @@
+<p>image works!</p>
+<div>
+    <header class="App-header">
+      <img src="background.jpeg" class="headerBackground" alt="Background" />
+      <div class="content">
+        <h1>This is the image page</h1>
+        <p>It contains images fetched online</p>
+      </div>
+    </header>
+  
+    <h1>Images 1 to 10</h1>
+  
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+      <div *ngFor="let image of imageData" style="text-align: center;">
+        <img [src]="image.url" [alt]="'Image ' + image.id" style="width: 200px; height: 300px; object-fit: cover;" />
+        <p>Image ID: {{ image.id }}</p>
+      </div>
+      <app-background-changer/>
+    </div>
+</div>
+  

@@ -1,0 +1,27 @@
+<header class="App-header">
+  <app-background-animation/>
+    <div class="content">
+      <h1>This is the homepage</h1>
+      <p>It contains data from an api-call</p>
+    </div>
+</header>
+<div *ngIf="data; else loading">
+    <h1>Resources</h1>
+    <div *ngFor="let resource of data" style="margin-bottom: 20px">
+      <h3>{{ resource.description }}</h3>
+      <p>
+        URL: 
+        <a [href]="resource.url" target="_blank" rel="noopener noreferrer">
+          {{ resource.url }}
+        </a>
+      </p>
+      <p><strong>Topics:</strong> {{ resource.topics.join(', ') }}</p>
+      <p><strong>Types:</strong> {{ resource.types.join(', ') }}</p>
+      <p><strong>Levels:</strong> {{ resource.levels.join(', ') }}</p>
+    </div>
+    <app-counter/>
+</div>
+  
+<ng-template #loading>
+<p>Loading...</p>
+</ng-template>
